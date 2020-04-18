@@ -1,0 +1,211 @@
+#home {
+    position: relative;
+}
+
+html {
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    background-color: transparent;
+    overflow: auto;
+}
+
+#sideBar {
+    min-height: 600px;
+    overflow-y: auto;
+}
+
+.feedback_area_title,
+#commentform_title {
+    border-bottom: 1px solid #e4e4e4;
+    font-size: 14px;
+    color: #666;
+}
+
+#comment_form_container .comment_textarea {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#sideBarMain li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#sidebar_toptags .catListTag ul li {
+    display: inline-table;
+    background-color: rgba(82, 168, 236, .6);
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #2e6ab1;
+}
+
+.CalTodayDay {
+    border-radius: 5px;
+}
+
+#blog-news {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#avatar {
+    display: block;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 2px grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+#avatar:hover {
+    animation: beat 0.25s infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes beat {
+    to {
+        transform: scale(1.1) rotate(720deg);
+    }
+}
+
+#sidebar_news .catListTitle {
+    display: none;
+}
+
+div#sidebar_postcategory ul li {
+    display: inline-table;
+    padding: 2px 5px;
+    text-align: center;
+    background-color: #f8f8f8;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.cnblogs-markdown .hljs,
+.cnblogs-post-body .hljs {
+    padding: 20px !important;
+    border-radius: 10px !important;
+}
+
+#ad_t2,
+#opt_under_post,
+#cnblogs_c1,
+#under_post_news,
+#cnblogs_c2,
+#under_post_kb,
+#HistoryToday {
+    display: none !important;
+}
+
+/*添加按钮*/
+.cnblogs-markdown pre {
+    position: relative;
+}
+
+.cnblogs-markdown pre>.copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background: rgb(255, 252, 252);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.cnblogs-markdown pre>.copy:hover {
+    box-shadow: 0 0 5px #e4e4e4;
+}
+
+.cnblogs-markdown pre>.copy img {
+    width: 16px;
+    height: 16px;
+}
+
+.cnblogs-markdown pre>.copyed {
+    background: #67c23a;
+}
+
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: calc(-50% + 2.5px);
+    right: calc(100% + 5px);
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 80px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 25%;
+    right: 100%;
+    margin-left: -5px;
+    width: 0;
+    border-left: 5px solid #000;
+    border-left: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}

@@ -1,0 +1,54 @@
+<script>
+    window.onload = function () {
+        // 增加 GitHub 链接
+        var forkMe = document.createElement("div");
+        forkMe.style.position = "absolute";
+        forkMe.style.top = 0;
+        forkMe.style.right = 0;
+        forkMe.innerHTML = '<a href="https://github.com/teemwu"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>';
+        document.getElementById("home").appendChild(forkMe);
+        // 文章实际地址获取
+        var orignLink = document.getElementById("orign_link");
+        if (orignLink) {
+            var _link = window.location.href;
+            orignLink.href = _link;
+            orignLink.innerText = _link;
+        }
+
+        // 侧边栏高度限制
+        // document.getElementById("sideBar").style.maxHeight=document.getElementById("mainContent").offsetHeight+"px";
+
+        // 插入头像
+        $("#profile_block").before("<a id='avatar' href='https://www.cnblogs.com/teemwu/'><img src='https://pic.cnblogs.com/avatar/831280/20190119221515.png' /></a>");
+        // 插入代码复制
+        $(function () {
+            if ($("#cnblogs_post_body").hasClass("cnblogs-markdown")) {
+                if ($("#post-date")[0]) {
+                    var pres = $("pre");
+                    if (pres.length) {
+                        pres.each(function () {
+                            var t = $(this)
+                                .children("code")
+                                .text();
+                            var btn = $('<div class="copy" data-tooltip="点击复制"><img src="https://images.cnblogs.com/cnblogs_com/teemwu/1570864/o_200418091534copy_24px_rounded.png"/></div>').attr(
+                                "data-clipboard-text",
+                                t
+                            );
+                            $(this).prepend(btn);
+                            var c = new ClipboardJS(btn[0]);
+                            c.on("success", function () {
+                                btn.attr("data-tooltip","复制成功");
+                            });
+                            c.on("error", function () {
+                                btn.attr("data-tooltip","复制失败");
+                            });
+                            btn.mouseleave(function () {
+                                btn.attr("data-tooltip","点击复制");
+                            });
+                        });
+                    }
+                }
+            }
+        });
+    }
+</script>
