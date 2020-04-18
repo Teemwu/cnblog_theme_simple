@@ -143,6 +143,17 @@ div#sidebar_postcategory ul li {
     background: #67c23a;
 }
 
+/* 文章标题 */
+#topics .postTitle {
+    padding-left: 0;
+}
+
+.day .postTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /**
  * Tooltip Styles
  */
