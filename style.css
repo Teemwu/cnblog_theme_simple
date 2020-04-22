@@ -30,7 +30,7 @@ body {
     }
 }
 
-img{
+img {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -38,6 +38,7 @@ img{
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
+
 /* 
 @-webkit-keyframes fadeInUp {
     from {
@@ -306,4 +307,46 @@ div#sidebar_postcategory ul li {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
+}
+
+/* 文章底部 */
+#blog_post_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#author_profile,
+.buryit {
+    display: none;
+}
+
+#green_channel {
+    border: none;
+    text-align: left;
+}
+
+#div_digg {
+    margin-right: 0;
+}
+
+.diggit {
+    float: right;
+}
+
+/* 评论相关 */
+.comment-avatar {
+    display: inline-block;
+    margin-bottom: -22px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid rgba(233, 233, 233, .5);
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+}
+
+.feedbackCon {
+    padding: 0 0 0 51px;
+    box-sizing: border-box;
 }
