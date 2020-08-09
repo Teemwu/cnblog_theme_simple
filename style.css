@@ -101,9 +101,9 @@ img {
 }
 
 #sidebar_toptags .catListTag ul li {
-    display: inline-table;
+    display: flex;
     background-color: rgba(82, 168, 236, .6);
-    padding: 0 5px;
+    padding: 0 10px;
     border-radius: 5px;
     margin-top: 5px;
     height: 26px;
@@ -114,6 +114,7 @@ img {
 
 .CalTodayDay {
     border-radius: 5px;
+    background-color: rgba(82, 168, 236, .6)!important;
 }
 
 #blog-news {
@@ -152,8 +153,13 @@ img {
     display: none;
 }
 
+div#sidebar_postcategory ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 div#sidebar_postcategory ul li {
-    display: inline-table;
+    display: block;
     padding: 2px 5px;
     text-align: center;
     background-color: #f8f8f8;
@@ -222,7 +228,8 @@ div#sidebar_postcategory ul li {
 
 /* 跳转链接 */
 #sidebar_toptags .catListTag ul li a {
-    display: inline-block;
+    display: block;
+    flex: 1;
     height: 100%;
 }
 
