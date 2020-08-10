@@ -4,6 +4,14 @@ html {
     overflow: hidden;
 }
 
+.sunnyBg{
+    background-color: rgb(255, 243, 194)!important;
+    background-image: url('https://images.cnblogs.com/cnblogs_com/teemwu/1570864/o_200810162443test.png');
+    background-size: auto;
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
 body {
     height: 100%;
     background-color: transparent;
@@ -356,4 +364,16 @@ div#sidebar_postcategory ul li {
 .feedbackCon {
     padding: 0 0 0 51px;
     box-sizing: border-box;
+}
+
+/* 导航栏 */
+#navList li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 50px;
+}
+#navList a {
+    padding-top: 0;
 }

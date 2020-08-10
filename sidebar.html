@@ -50,6 +50,37 @@
                 }
             }
         });
+
+        // 增加背景切换
+        $(function () {
+            // 插入切换按钮
+            $("#navList").append(
+                `<li>
+                    <div class="toggle toggle--daynight">
+                        <input type="checkbox"
+                               name="themeCheckbox"
+                               id="toggle--daynight"
+                               class="toggle--checkbox">
+                        <label class="toggle--btn"
+                               for="toggle--daynight"><span class="toggle--feature"></span></label>
+                    </div>
+                </li>`
+            );
+            // 监听按钮事件
+            $('input[name=themeCheckbox]').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#stars').hide()
+                    $('#stars2').hide()
+                    $('#stars3').hide()
+                    $('html').addClass('sunnyBg')
+                } else {
+                    $('#stars').show()
+                    $('#stars2').show()
+                    $('#stars3').show()
+                    $('html').removeClass('sunnyBg')
+                }
+            });
+        })
     }
     // 显示评论区头像
     function showAvatar() {
