@@ -1,5 +1,5 @@
 <script>
-    window.onload = function () {
+    $(document).ready(function () {
         // 增加 GitHub 链接
         var forkMe = document.createElement("div");
         forkMe.style.position = "absolute";
@@ -51,8 +51,32 @@
             }
         });
 
-        // 增加背景切换
+
+        // 背景切换
+        function changeBackground(status) {
+            if (status) {
+                $('#stars').hide()
+                $('#stars2').hide()
+                $('#stars3').hide()
+                $('html').addClass('sunnyBg')
+                $('html').removeClass('starsBg')
+                localStorage.setItem('backgroundStatus', true)
+            } else {
+                $('#stars').show()
+                $('#stars2').show()
+                $('#stars3').show()
+                $('html').addClass('starsBg')
+                $('html').removeClass('sunnyBg')
+                localStorage.setItem('backgroundStatus', false)
+            }
+        }
         $(function () {
+            let status = JSON.parse(localStorage.getItem('backgroundStatus'))
+            if (status === null) {
+                const hour = new Date().getHours()
+                status = hour > 6 && hour <= 19
+            }
+            changeBackground(status)
             // 插入切换按钮
             $("#navList").append(
                 `<li>
@@ -60,6 +84,7 @@
                         <input type="checkbox"
                                name="themeCheckbox"
                                id="toggle--daynight"
+                               ${status ? 'checked' : ''}
                                class="toggle--checkbox">
                         <label class="toggle--btn"
                                for="toggle--daynight"><span class="toggle--feature"></span></label>
@@ -68,32 +93,25 @@
             );
             // 监听按钮事件
             $('input[name=themeCheckbox]').change(function () {
-                if ($(this).is(':checked')) {
-                    $('#stars').hide()
-                    $('#stars2').hide()
-                    $('#stars3').hide()
-                    $('html').addClass('sunnyBg')
-                } else {
-                    $('#stars').show()
-                    $('#stars2').show()
-                    $('#stars3').show()
-                    $('html').removeClass('sunnyBg')
-                }
+                changeBackground($(this).is(':checked'))
             });
         })
-    }
-    // 显示评论区头像
-    function showAvatar() {
-        $(".feedbackItem").each(function () {
-            var avatar = $(this).children(".feedbackCon").children("span:last").html();
-            avatar = avatar ? avatar.replace("http://", "https://") : "https://pic.cnblogs.com/face/sample_face.gif";  //没有头像用默认头像
-            //console.log( avatar );
-            $('<div style="background-image:url(' + avatar + ')" class="comment-avatar" />').prependTo($(this).children(".feedbackListSubtitle"));
-        });
-    }
+        // 显示评论区头像
+        function showAvatar() {
+            $(".feedbackItem").each(function () {
+                var avatar = $(this).children(".feedbackCon").children("span:last").html();
+                avatar = avatar ? avatar.replace("http://", "https://") : "https://pic.cnblogs.com/face/sample_face.gif";  //没有头像用默认头像
+                $('<div style="background-image:url(' + avatar + ')" class="comment-avatar" />').prependTo($(this).children(".feedbackListSubtitle"));
+            });
+        }
 
-    $(function () { setTimeout(function () { showAvatar(); }, 1000) });
-    $(document).on("click", ".pager a", function () {
-        setTimeout(function () { showAvatar(); }, 1000);
-    });
+        $(function () {
+            setTimeout(function () {
+                showAvatar();
+            }, 1000)
+        });
+        $(document).on("click", ".pager a", function () {
+            setTimeout(function () { showAvatar(); }, 1000);
+        });
+    })
 </script>

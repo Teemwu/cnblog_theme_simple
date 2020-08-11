@@ -1,15 +1,18 @@
 html {
     height: 100%;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
 }
 
 .sunnyBg{
-    background-color: rgb(255, 243, 194)!important;
+    background-color: rgb(255, 243, 194);
     background-image: url('https://images.cnblogs.com/cnblogs_com/teemwu/1570864/o_200810162443test.png');
     background-size: auto;
     background-position: bottom;
     background-repeat: repeat-x;
+}
+
+.starsBg{
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 body {
@@ -36,6 +39,12 @@ body {
     to {
         opacity: 1;
     }
+}
+
+#stars,
+#stars2,
+#stars3{
+    display: none;
 }
 
 img {
@@ -376,4 +385,12 @@ div#sidebar_postcategory ul li {
 }
 #navList a {
     padding-top: 0;
+}
+
+/* markdown 引用 */
+.postBody blockquote{
+    border-radius: 10px;
+    background-position: 10px 5px;
+    color: #999999;
+    padding-left: 30px;
 }
